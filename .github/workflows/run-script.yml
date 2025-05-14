@@ -1,0 +1,16 @@
+name: Run Generated Script
+
+on:
+  push:
+    paths:
+      - scripts/generated.js
+
+jobs:
+  execute-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run the script
+        run: |
+          echo "Running generated script..."
+          node scripts/generated.js
