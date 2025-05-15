@@ -1,16 +1,27 @@
-name: Run Generated Script
+name: Run Playwright Test
 
 on:
   push:
     paths:
-      - scripts/generated.js
+      - "scripts/test.spec.js"
 
 jobs:
-  execute-script:
+  test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: Run the script
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Playwright
         run: |
-          echo "Running generated script..."
-          node scripts/generated.js
+          npm install -D playwright
+          npx playwright install
+
+      - name: Run Playwright test
+        run: |
+          node scripts/test.spec.js
