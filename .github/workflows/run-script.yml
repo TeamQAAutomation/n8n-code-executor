@@ -3,8 +3,7 @@ name: Run Playwright Test
 on:
   push:
     paths:
-      - "scripts/**"    # Triggers on any change inside scripts folder or its subfolders
-  # Or simply omit 'paths' to run on all pushes
+      - "scripts/**"  # Triggers on any change inside scripts folder or its subfolders
 
 jobs:
   test:
@@ -18,9 +17,9 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Playwright
+      - name: Install dependencies
         run: |
-          npm install -D playwright
+          npm install -D @playwright/test
           npx playwright install
 
       - name: Run Playwright tests
