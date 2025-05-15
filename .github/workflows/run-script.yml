@@ -3,7 +3,7 @@ name: Run Playwright Test
 on:
   push:
     paths:
-      - "scripts/test.spec.js"
+      - "scripts/testtwo.spec.js"
 
 jobs:
   test:
@@ -24,4 +24,4 @@ jobs:
 
       - name: Run Playwright test
         run: |
-          node scripts/test.spec.js
+          node scripts/testtwo.spec.js
