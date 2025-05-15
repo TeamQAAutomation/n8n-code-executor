@@ -24,4 +24,4 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          npx playwright test scripts/
+          npx playwright test scripts/ --reporter=dot
